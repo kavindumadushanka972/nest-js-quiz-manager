@@ -13,7 +13,7 @@ export class QuizController {
   }
 
   @Post('/create')
-  createQuiz(@Body() quizData: CreateQuizeDto) {
-    return quizData;
+  async createQuiz(@Body() quizData: CreateQuizeDto) {
+    return await this.quizService.createNewQuiz(quizData);
   }
 }
