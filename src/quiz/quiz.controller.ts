@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CreateQuizeDto } from './dto/create-quiz.dto';
+import { Quiz } from './entity/quiz.entity';
 import { QuizService } from './quiz.service';
 
 @Controller('quiz')
@@ -13,7 +14,7 @@ export class QuizController {
   }
 
   @Post('/create')
-  async createQuiz(@Body() quizData: CreateQuizeDto) {
+  async createQuiz(@Body() quizData: CreateQuizeDto): Promise<Quiz> {
     return await this.quizService.createNewQuiz(quizData);
   }
 }

@@ -16,7 +16,7 @@ export class QuizService {
     return [1,2,3];
   }
 
-  async createNewQuiz(quiz: CreateQuizeDto) {
+  async createNewQuiz(quiz: CreateQuizeDto): Promise<Quiz> {
     return await this.quizRepository.save(quiz);
   }
 }

@@ -3,8 +3,10 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { Question } from './question/entity/question.entity';
 import { Quiz } from './quiz/entity/quiz.entity';
 import { QuizModule } from './quiz/quiz.module';
+import { QuestionModule } from './question/question.module';
 
 @Module({
   imports: [
@@ -16,10 +18,11 @@ import { QuizModule } from './quiz/quiz.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [Quiz],
+      entities: [Quiz, Question],
       synchronize: process.env.DB_SYNCHRONIZE === 'true', // should be false in production
     }),
-    QuizModule
+    QuizModule,
+    QuestionModule
   ],
   controllers: [AppController],
   providers: [AppService],
