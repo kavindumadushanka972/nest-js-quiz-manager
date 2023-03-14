@@ -1,7 +1,5 @@
-import { Equals, IsEmail, IsNotEmpty, Length, Matches, Validate, ValidationArguments } from 'class-validator';
+import { IsEmail, IsNotEmpty, Length, Matches } from 'class-validator';
 import { REGEX, MESSAGES } from 'src/app.utils';
-import { Index } from 'typeorm';
-
 export class UserRegisterRequestDto {
   @IsNotEmpty()
   name: string;
