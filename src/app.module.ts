@@ -7,6 +7,8 @@ import { Question } from './question/entity/question.entity';
 import { Quiz } from './quiz/entity/quiz.entity';
 import { QuizModule } from './quiz/quiz.module';
 import { QuestionModule } from './question/question.module';
+import { Option } from './option/entity/option.entity';
+import { OptionModule } from './option/option.module';
 
 @Module({
   imports: [
@@ -18,11 +20,12 @@ import { QuestionModule } from './question/question.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [Quiz, Question],
+      entities: [Quiz, Question, Option],
       synchronize: process.env.DB_SYNCHRONIZE === 'true', // should be false in production
     }),
     QuizModule,
-    QuestionModule
+    QuestionModule,
+    OptionModule
   ],
   controllers: [AppController],
   providers: [AppService],

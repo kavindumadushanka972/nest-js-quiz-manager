@@ -1,5 +1,6 @@
+import { Option } from "src/option/entity/option.entity";
 import { Quiz } from "src/quiz/entity/quiz.entity";
-import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('questions')
 export class Question extends BaseEntity {
@@ -13,4 +14,7 @@ export class Question extends BaseEntity {
 
   @ManyToOne(() => Quiz, (quiz) => quiz.questions)
   quiz: Quiz
+
+  @OneToMany(() => Option, (option) => option.question)
+  options: Option[]
 }
