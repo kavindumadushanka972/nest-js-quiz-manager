@@ -2,7 +2,7 @@ import { IsNotEmpty, MinLength } from "class-validator";
 
 export class CreateOptionDto {
   @IsNotEmpty()
-  @MinLength(3)
+  @MinLength(1)
   option: string;
 
   @IsNotEmpty()
