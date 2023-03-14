@@ -11,6 +11,7 @@ import { Option } from './option/entity/option.entity';
 import { OptionModule } from './option/option.module';
 import { UserModule } from './user/user.module';
 import { User } from './user/entity/user.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -28,7 +29,8 @@ import { User } from './user/entity/user.entity';
     QuizModule,
     QuestionModule,
     OptionModule,
-    UserModule
+    UserModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
