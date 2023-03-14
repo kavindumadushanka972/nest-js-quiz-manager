@@ -32,7 +32,7 @@ export class QuestionService {
   }
 
   async getQuestion(id: number): Promise<Question> {
-    return await this.questionRepository.findOne({where: {id: id}});
+    return await this.questionRepository.findOne({where: {id: id}, relations: ['options']});
   }
 
 }
