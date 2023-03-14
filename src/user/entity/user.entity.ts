@@ -1,7 +1,15 @@
-import { BaseEntity, BeforeInsert, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import * as bcrypt from 'bcrypt'
+import {
+  BaseEntity,
+  BeforeInsert,
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import * as bcrypt from 'bcrypt';
 
-// when declaring the table, we can set default orderby 
+// when declaring the table, we can set default orderby
 @Entity({ name: 'users', orderBy: { name: 'ASC' } })
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -11,18 +19,18 @@ export class User extends BaseEntity {
   name: string;
 
   @Column({
-    unique: true
+    unique: true,
   })
   email: string;
 
   @Column()
-  password: string
+  password: string;
 
   @CreateDateColumn()
-  createdAt: Date
+  createdAt: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date
+  updatedAt: Date;
 
   @BeforeInsert()
   async setPassword(password: string) {
