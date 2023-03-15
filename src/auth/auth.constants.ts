@@ -1,3 +1,11 @@
-export const jwtConstants = {
-  secret: 'ar9VzYtq4S6Aqc-&bg8TSjKh%5EgPN6456TVfVXj3u!xX8g4'
+import { JwtModuleAsyncOptions } from "@nestjs/jwt";
+import authConfig from "./auth.config";
+
+export const jwtConfig: JwtModuleAsyncOptions = {
+  useFactory: () => {
+    return {
+      secret: authConfig().jwtSecret,
+      signOptions: { expiresIn: '1d' },
+    }
+  }
 };
