@@ -1,8 +1,10 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { CreateQuestionDto } from './dto/create-question.dto';
 import { Question } from './entity/question.entity';
 import { QuestionService } from './question.service';
 
+@ApiTags('Quiz')
 @Controller('question')
 export class QuestionController {
   constructor(
