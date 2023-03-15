@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 import { ApiBadRequestResponse, ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
 import { UserRegisterRequestDto } from './dto/user-register.req.dto';
 import { User } from './entity/user.entity';
@@ -12,7 +12,7 @@ export class UserController {
   @Post('/register')
   @ApiCreatedResponse({ description: 'Created user object as response', type: User})
   @ApiBadRequestResponse({ description: 'User cannont register. Try again.'})
-  doUserRegistration(@Body() userData: UserRegisterRequestDto): Promise<User> {
+  doUserRegistration(@Body() userData: UserRegisterRequestDto): Promise<any> {
     return this.userService.doUserRegistration(userData);
   }
 }

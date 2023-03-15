@@ -11,6 +11,7 @@ async function bootstrap() {
   }))
 
   const config = new DocumentBuilder()
+    .addBearerAuth()
     .setTitle('Quiz Manager API')
     .setDescription('Create Quizes with Questions and Options')
     .setVersion('1.0')

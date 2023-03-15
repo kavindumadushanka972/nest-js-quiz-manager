@@ -1,6 +1,7 @@
-import { Body, Controller, DefaultValuePipe, Get, Param, ParseIntPipe, Post, Query } from '@nestjs/common';
+import { Body, Controller, DefaultValuePipe, Get, Param, ParseIntPipe, Post, Query, UseGuards } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOkResponse, ApiSecurity, ApiTags } from '@nestjs/swagger';
 import { IPaginationOptions, Pagination } from 'nestjs-typeorm-paginate';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { CreateQuizeDto } from './dto/create-quiz.dto';
 import { Quiz } from './entity/quiz.entity';
 import { QuizService } from './quiz.service';
@@ -30,6 +31,8 @@ export class QuizController {
     return await this.quizService.getQuizById(id);
   }
 
+  @ApiSecurity('bearer')
+  @UseGuards(JwtAuthGuard)
   @ApiCreatedResponse({ description: 'The quiz that got created', type: Quiz })
   @Post('/create')
   async createQuiz(@Body() quizData: CreateQuizeDto): Promise<Quiz> {
