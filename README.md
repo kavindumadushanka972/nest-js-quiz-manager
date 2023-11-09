@@ -45,29 +45,15 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
-## Test
+Application start and running on `http://localhost:3000`.
 
-```bash
-# unit tests
-$ yarn run test
+![01](images/01.png)
 
-# e2e tests
-$ yarn run test:e2e
+![02](images/02.png)
 
-# test coverage
-$ yarn run test:cov
-```
+![03](images/03.png)
 
-## Support
+There you go! 🚀. Thank You!🙌
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
