@@ -32,6 +32,19 @@
 $ yarn install
 ```
 
+You should create a `.env` file including below variables.
+
+```bash
+DB_HOST= #localhost
+DB_PORT= #port
+DB_USERNAME= #root
+DB_DATABASE= #quiz -> database name
+DB_PASSWORD= #password 
+DB_SYNCHRONIZE=true
+
+JWT_SECRET= #ar9VzYtq4S6Aqc-&bg8TSjKh%5EgPN6456TVfVXj3u!xX8g4
+```
+
 ## Running the app
 
 ```bash
